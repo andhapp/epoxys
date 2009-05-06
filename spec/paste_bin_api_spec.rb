@@ -15,15 +15,14 @@ describe 'Paste Bin API' do
 		@password = ''
 		@secret_key = ''
 		@api_key = 3
+		PasteBinApi.paste_create_new(@url, @post_method, @code, @syntax, @author, @description, @is_private, @password, @secret_key)
 	end
 
 	it "should return paste id on a successful paste" do
-		PasteBinApi.paste_create_new(@url, @post_method, @code, @syntax, @author, @description, @is_private, @password, @secret_key)
 		PasteBinApi.paste_id.should_not be_nil
 	end
 
 	it "should return paste url on a successful paste" do
-		PasteBinApi.paste_create_new(@url, @post_method, @code, @syntax, @author, @description, @is_private, @password, @secret_key)
 		PasteBinApi.paste_url.should_not be_nil
 	end
 
