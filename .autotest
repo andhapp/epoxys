@@ -1,2 +1,2 @@
-require 'autotest/redgreen'
-require 'autotest/snarl'
+require "rubygems"
+
