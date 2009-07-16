@@ -4,7 +4,7 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__) + 'vendor', 'sinatra', 'lib'
 require File.join(File.dirname(__FILE__), 'lib', 'paste_bin_api')
 
 get '/' do
-	'It works!!!'
+	redirect 'http://epoxy.andhapp.com/'
 end
 
 post '/paste/create' do
