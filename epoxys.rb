@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.dirname(__FILE__) + '/../sinatra/lib'
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__) + 'vendor', 'sinatra', 'lib')
 
 %w{rubygems sinatra}.each {|x| require x}
 require File.join(File.dirname(__FILE__), 'lib', 'paste_bin_api')
