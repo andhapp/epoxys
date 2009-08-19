@@ -1,6 +1,17 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
-require 'spec/autorun'
+
+%w{epoxys spec/autorun spec spec/interop/test rack/test}.each {|x| require x}
+
+Sinatra::Default.set(
+  :environment => :test,
+  :raise_errors => true,
+  :logging => true
+)
+
+module AppHelper
+  def app; Sinatra::Application end
+end
 
 Spec::Runner.configure do |config|
   # == Fixtures
@@ -34,4 +45,7 @@ Spec::Runner.configure do |config|
   # == Notes
   # 
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
+  
+  config.include Rack::Test::Methods
+  config.include AppHelper
 end

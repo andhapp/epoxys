@@ -1,18 +1,11 @@
-%w{epoxys spec spec/interop/test rack/test}.each {|x| require x}
+require File.expand_path(File.dirname(__FILE__) << '/spec_helper.rb')
 
-set :environment, :test
-
-describe 'App' do
-	include Rack::Test::Methods
+describe 'Epoxys Application' do
   
-  def app
-    Sinatra::Application
-  end
-
-	it "should pick the spec files for autotest and display error messages with snarl" do
+	it "should pick the spec files for autotest" do
 		get '/'
-		last_response.should be_ok
-		last_response.body.should eql('It works!!!')
+		follow_redirect!
+		last_request.url.should == 'http://epoxy.andhapp.com/'
 	end
 
 	it "should paste the code supplied and pass the url back" do 
